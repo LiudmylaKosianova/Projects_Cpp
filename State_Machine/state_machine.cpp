@@ -18,7 +18,7 @@ int main(){
          << "Press 1 if you want your character to walk" << "\n"
          << "Press 2 if you want your character to run" << "\n"
          << "Press 3 if you want your character to crawl" << "\n"
-         << "Press 7 to finish" << "/n";
+         << "Press 7 to finish";
     cout <<"\n\n";
     
     enum m_s {stand, walk, run, crawl};
@@ -33,26 +33,58 @@ int main(){
         case 0: cout << "You are standing. Next you can walk (1) or crawl (3). Press 7 to finish\n";
                 cout << "Your choice: " << "\n";
                 cin >> choice;
-                state = (m_s)choice;
+
+                if(choice == 1 || choice == 3){state = (m_s)choice;}
+                else if(choice == 7){
+                        cout << "Thanks for playing! Good bye!\n";}
+                else{
+                        cout << "Illigal movement. You will be set to standing\n";
+                        state = (m_s)0;
+                }
+
                 break;
         case 1: cout << "You are walking. Next you can stand (0) or run (2). Press 7 to finish\n";
                 cout << "Your choice: " << "\n";
                 cin >> choice;
-                state = (m_s)choice;
+
+                if(choice == 0 || choice == 2){state = (m_s)choice;}
+                else if(choice == 7){
+                        cout << "Thanks for playing! Good bye!\n";}
+                else{
+                        cout << "Illigal movement. You will be set to standing\n";
+                        state = (m_s)0;
+                }
+
                 break;
         case 2: cout << "You are running. Next you can walk (1). Press 7 to finish\n";
                 cout << "Your choice: " << "\n";
                 cin >> choice;
-                state = (m_s)1;
+
+                if(choice == 1){state = (m_s)choice;}
+                else if(choice == 7){
+                        cout << "Thanks for playing! Good bye!\n";}
+                else{
+                        cout << "Illigal movement. You will be set to standing\n";
+                        state = (m_s)0;
+                }
+                 
                 break;
         default:cout << "You are crawling. Next you can stand (0). Press 7 to finish\n";
                 cout << "Your choice: " << "\n";
                 cin >> choice;
-                state = (m_s)0;
+
+                if(choice == 1){state = (m_s)choice;}
+                else if(choice == 7){
+                        cout << "Thanks for playing! Good bye!7\n";}
+                else{
+                        cout << "Illigal movement. You will be set to standing\n";
+                        state = (m_s)0;
+                }          
+
                 break;
     }
     }
-    cout << "Thanks for playing!\n";      
+    cout << "\n======Finish!=====\n";      
 
     return 0;
 }

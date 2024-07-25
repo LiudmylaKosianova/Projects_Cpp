@@ -84,7 +84,7 @@ int main(){
                 break;
     }
     }
-    cout << "\n======Finish!=====\n";      
+    cout << "\n=========Finish!========\n";      
 
     return 0;
 }

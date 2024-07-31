@@ -14,6 +14,7 @@ int WinState[8][3][2] = {{{0,0},{0,1},{0,2}},
                          {{0,0},{1,0},{2,0}},
                          {{0,1},{1,1},{2,1}},
                          {{0,2},{1,2},{2,2}}};
+int WinCombo = 91;
 
 void Initialize(char board[][3]);
 void Display(char board[][3]);
@@ -39,13 +40,20 @@ int main(){
         }while(!IsFree(row, col));
 
         SetValue(row, col, player);
-        if(HasWon(player)) gameOver = true;
-
+        if(HasWon(player)) {
+            gameOver = true;
+            Display(board);
+            break;
+            }
+            
         if(player == PLAYER_1) player = PLAYER_2;
         else player = PLAYER_1;
 
         count++;
-        if(count == 9) gameOver = true;
+        if(count == 9) {
+            gameOver = true;
+            cout << "\nNo one has won!\n";
+        }
 
         Display(board);
          
@@ -59,17 +67,22 @@ bool HasWon(char symb){
     bool match = false;
     int row = 0, col = 0;
 
+
     for(int a = 0; a < 8; a++){
+        WinCombo = a;
         for(int b = 0; b < 3; b++){
             row = WinState[a][b][0];
             col = WinState[a][b][1];
             if(board[row][col] == symb)match = true;
             else{
                 match = false;
+                WinCombo = 91;
                 break;
             }
         }
-        if(match)return match;
+        if(match){
+            cout << "\nPlayer " << symb << " has won!" << "\n";
+            return match;}
     }
 
     return false;

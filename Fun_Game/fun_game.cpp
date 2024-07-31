@@ -1,4 +1,6 @@
 #include <iostream>
+#include <time.h>
+#include <cstdlib>
 using namespace std;
 
 const char PLAYER_1 = 'O';
@@ -11,12 +13,25 @@ void SetValue(int row, int col, char symb);
 bool IsFree(int row, int col);
 
 int main(){
+    srand(time(NULL));
+
+    int row = 0, col = 0, count = 0;
+    bool gameOver = false;
+    char player = PLAYER_1;
+
     Initialize(board);
     Display(board);
-    SetValue(0,0,PLAYER_1);
-    SetValue(0,1,PLAYER_2);
-    Display(board);
-    cout << IsFree(0,0) << "\n";
+
+    while(!gameOver){
+
+        do{
+            row = rand()%3;
+            col = rand()%3;
+        }while(!IsFree(row, col));
+
+                
+    }
+
 
     return 0;
 }

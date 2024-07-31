@@ -29,7 +29,16 @@ int main(){
             col = rand()%3;
         }while(!IsFree(row, col));
 
-                
+        SetValue(row, col, player);
+
+        if(player == PLAYER_1) player = PLAYER_2;
+        else player = PLAYER_1;
+
+        count++;
+        if(count == 9) gameOver = true;
+
+        Display(board);
+         
     }
 
 

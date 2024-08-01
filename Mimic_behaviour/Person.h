@@ -3,6 +3,9 @@
 using namespace std;
 
 class Person{
+protected:
+    enum myState{sand, walk, run, crawl};
+    myState ms;
 public:
     Person();
     void Crawl();

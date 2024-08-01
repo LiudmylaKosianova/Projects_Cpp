@@ -6,5 +6,5 @@ Soldier::Soldier(Weapon * w){
 
 void Soldier::FireWeapon(){
     //cout << "\nFiring Weapon\n";
-    if(wpn!=0) wpn->Fire();
+    if((wpn!=0) && (ms!=3)) wpn->Fire();
 }

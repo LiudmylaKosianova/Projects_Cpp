@@ -14,6 +14,8 @@ int main(){
     Soldier *s1 = new Soldier(wpn);
     s1->Stand();
     s1->FireWeapon();
+    s1->Crawl();
+    s1->FireWeapon();
 
 
 

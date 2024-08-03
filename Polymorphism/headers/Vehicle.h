@@ -8,6 +8,7 @@ private:
 protected:
     int id;
 public:
+    Vehicle();
     Vehicle(int id, int damage);
     virtual void Display();
 };

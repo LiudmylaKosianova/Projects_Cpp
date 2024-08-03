@@ -3,6 +3,7 @@
 
 class Car:public Vehicle{
 public: 
+    Car();
     Car(int id, int damage);
     void Display()override;
 };

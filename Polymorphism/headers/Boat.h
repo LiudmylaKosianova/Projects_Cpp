@@ -3,6 +3,7 @@
 
 class Boat:public Vehicle{
 public: 
+    Boat();
     Boat(int id, int damage);
     void Display()override;
 };

@@ -1,7 +1,7 @@
 
 #include "../headers/Vehicle.h"
 
-
+Vehicle::Vehicle(){}
 Vehicle::Vehicle(int id, int damage):id(id), damage(damage){}
 
 void Vehicle::Display(){

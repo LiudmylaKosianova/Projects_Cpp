@@ -5,6 +5,5 @@
 Vehicle::Vehicle(int id, int damage):id(id), damage(damage){}
 
 void Vehicle::Display(){
-    cout << "Vehicle" << endl;
-    cout << "id: " << id << endl;
+    cout << "Vehicle id: " << id << endl;
 }

@@ -5,5 +5,6 @@ using namespace std;
 
 class Magic{
 public:
+    Magic(){}
     virtual void Display() = 0;
 };

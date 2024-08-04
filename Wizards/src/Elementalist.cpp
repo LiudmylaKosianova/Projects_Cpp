@@ -1,9 +1,10 @@
+
 #include "../headers/Elementalist.h"
 
 Elementalist::Elementalist(string name, int knowledge, int skill, 
                            int maxMagic, TElements specialism)
-                           : Wizard(name, knowledge, skill, maxMagic){
-    this->specialism = specialism;
+                           : Wizard(name, knowledge, skill, maxMagic), specialism(specialism){
+    
 }
 
 void Elementalist::Display(){

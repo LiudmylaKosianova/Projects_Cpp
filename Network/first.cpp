@@ -34,6 +34,12 @@ int main(){
     asio::io_context context; //platform specific interface 
     std::cout << "ASIO setup works!" << std::endl;
 
+    //idle work for context so that it won't finish too early
+    asio::io_context::work idleWork(context);
+
+    //start the context thread
+    std::thread thrContext = std::thread([&]() {context.run();});
+
     asio::error_code ec;
     //endpoint (address) where to connect to
     asio::ip::tcp::endpoint endpoint(asio::ip::make_address("93.184.216.34", ec), 80);
@@ -53,6 +59,9 @@ int main(){
 
     //check if the connection is alive
     if(socket.is_open()){
+        
+        GramTheData(socket);
+        
         //createing the request to send
         std::string sRequest = "GET /index.html HTTP/1.1\r\n"
                                 "Host: example.com\r\n"
@@ -61,8 +70,12 @@ int main(){
         //sending the request
         socket.write_some(asio::buffer(sRequest.data(),sRequest.size()), ec);
 
-        GramTheData(socket);
+        //program is busy with something else, while asio transfers data in the background
+        using namespace std::chrono_literals;
+        std::this_thread::sleep_for(2000ms);
 
+        context.stop();
+        if(thrContext.joinable()) thrContext.join();
         
 
     }

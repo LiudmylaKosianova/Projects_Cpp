@@ -9,7 +9,24 @@
 
  
  
+std::vector<char> vBuffer(20 * 1024);
+void GramTheData(asio::ip::tcp::socket& socket)
+{
+    socket.async_read_some(asio::buffer(vBuffer.data(), vBuffer.size()),
+        [&](std::error_code ec, std::size_t length)
+        {
+            if(!ec)
+            {
+                std::cout << "\nRead " << length << "bytes\n";
 
+                for (int i = 0; i < length; i++){
+                    std::cout << vBuffer[i];
+                }
+                GramTheData(socket);
+            }
+        }
+    );
+}
 
 int main(){
   
@@ -44,23 +61,9 @@ int main(){
         //sending the request
         socket.write_some(asio::buffer(sRequest.data(),sRequest.size()), ec);
 
-        //
-        using namespace std::chrono_literals;
-        std::this_thread::sleep_for(200ms);
+        GramTheData(socket);
+
         
-        //check for the answer
-        size_t bytes = socket.available();
-
-        std::cout << "Bytes available: " << bytes << std::endl;
-
-        //if there are available bytes, let's read them
-        if(bytes > 0){
-            std::vector<char> vBuffer(bytes);
-            socket.read_some(asio::buffer(vBuffer.data(), vBuffer.size()),ec);
-
-            //display to the console
-            for (auto c : vBuffer) std::cout << c;
-        }
 
     }
     

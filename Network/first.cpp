@@ -1,4 +1,6 @@
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 #define ASIO_STANDALONE //it is probably extra, since my asio dir comes withour boost
 #include "libs/asio-1.30.2/include/asio.hpp"
@@ -42,6 +44,10 @@ int main(){
         //sending the request
         socket.write_some(asio::buffer(sRequest.data(),sRequest.size()), ec);
 
+        //
+        using namespace std::chrono_literals;
+        std::this_thread::sleep_for(200ms);
+        
         //check for the answer
         size_t bytes = socket.available();
 

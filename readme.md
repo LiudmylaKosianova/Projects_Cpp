@@ -1,6 +1,7 @@
 # Projects C++
 
 ## OOP
+* "Space mission control"
 * "Mimic_behaviour"
 * "Polymorphism"
 * "Wizards"

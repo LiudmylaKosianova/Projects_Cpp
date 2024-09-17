@@ -9,13 +9,12 @@ class Rocket : public Spacecraft
     int numberOfStages;
 
     public:
-    Rocket(string name);
+    Rocket(string name, double cap, int stages);
     ~Rocket();
 
     void launch()override;
-
-// void ignite(): Simulates engine ignition.
-// void separateStage(int stageNumber): Simulates the separation of a rocket stage.
-// void reachOrbit(): Marks the rocket as having reached orbit.
+    void ignite(); 
+    void separateStage(int stageNumber);
+    void reachOrbit();
 
 };

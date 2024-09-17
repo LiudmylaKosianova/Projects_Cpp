@@ -20,3 +20,13 @@ int numberOfStages
 ignite(): Simulates engine ignition.
 separateStage(): Simulates the separation of a rocket stage.
 reachOrbit(): Marks the rocket as having reached orbit.
+
+**Derived Class: Satellite**
+
+***Unique Attributes***:
+string orbitType 
+double operationalLifetime (in years)
+***Methods***:
+void deploySolarPanels(): Simulates the deployment of solar panels.
+void adjustOrbit(): Adjusts the satellite's orbit.
+void beginTransmission(): Starts transmitting data.

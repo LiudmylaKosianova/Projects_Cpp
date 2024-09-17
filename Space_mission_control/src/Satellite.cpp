@@ -5,26 +5,26 @@ Spacecraft(name, launch), orbitType(orbit), operationalLifetime(time)
 {
     spacecraftType = "Satellite";
     action = "is created";
-    Spacecraft::printAction;
+    Spacecraft::printAction();
 }
 
 Satellite::~Satellite()
 {
     action = "is destroyed";
-    Spacecraft::printAction;
+    Spacecraft::printAction();
 }
 
 void Satellite::launch()
 {
     action = "is launched";
-    Spacecraft::printAction;
+    Spacecraft::printAction();
     status = "Launched";
 }
 
 void Satellite::completeMission()
 {
     action = "is completed";
-    Spacecraft::printAction;
+    Spacecraft::printAction();
     status = "Completed";
 }
 

@@ -13,10 +13,10 @@ class Spacecraft
     string missionName, launchDate, status;
 
     public:
-    Spacecraft(string name) : missionName(name){}
+    Spacecraft(string name, string launch) : missionName(name), launchDate(launch){}
     virtual ~Spacecraft(){}
 
     virtual void launch(){}
-    virtual void sendMissionUpdate(const string &update){}
+    virtual void sendMissionUpdate(const string &update){ status = update;}
     virtual void completeMission(){}
 };

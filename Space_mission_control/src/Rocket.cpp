@@ -1,6 +1,6 @@
 #include "../headers/Rocket.h"
 
-Rocket::Rocket(string name, double cap, int stages) : Spacecraft(name), 
+Rocket::Rocket(string name, string launch, double cap, int stages) : Spacecraft(name, launch), 
 payloadCapacity(cap), numberOfStages(stages)
 {
     cout << "Rocket \"" << missionName << "\"" << " is created\n";

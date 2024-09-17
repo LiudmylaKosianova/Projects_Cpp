@@ -9,7 +9,7 @@ class Rocket : public Spacecraft
     int numberOfStages;
 
     public:
-    Rocket(string name, double cap, int stages);
+    Rocket(string name, string launch, double cap, int stages);
     ~Rocket();
 
     void launch()override;

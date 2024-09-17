@@ -27,3 +27,22 @@ void Satellite::completeMission()
     Spacecraft::printAction;
     status = "Completed";
 }
+
+void Satellite::deploySolarPanels()
+{
+    action = "solar panels deployed";
+    Spacecraft::printAction();
+}
+
+void Satellite::adjustOrbit()
+{
+    action = "orbit is adjested";
+    Spacecraft::printAction();
+}
+
+void Satellite::beginTransmission()
+{
+    action = "transmission started";
+    Spacecraft::printAction();
+
+}

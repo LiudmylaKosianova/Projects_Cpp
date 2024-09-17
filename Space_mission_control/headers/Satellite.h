@@ -14,9 +14,8 @@ class Satellite : public Spacecraft
 
     void launch()override;
     void completeMission()override;
-
-//     void deploySolarPanels(): Simulates the deployment of solar panels.
-// void adjustOrbit(): Adjusts the satellite's orbit.
-// void beginTransmission(): Starts transmitting data.
+    void deploySolarPanels();
+    void adjustOrbit(); 
+    void beginTransmission();
 
 };

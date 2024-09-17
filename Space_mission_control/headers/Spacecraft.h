@@ -22,6 +22,7 @@ class Spacecraft
 
     virtual void launch(){}
     virtual void sendMissionUpdate(const string &update){ status = update;}
-    virtual void completeMission(){}
+    virtual void completeMission(){}   
+     
     void printAction(){cout << spacecraftType <<" \"" << missionName << "\" " << action << endl;}
 };
